@@ -5,8 +5,8 @@ WORKDIR /app
 # upgrade pip version
 
 RUN pip install openai
-RUN -m pip install --upgrade pip
-RUN python pip install -r requirements.txt
+RUN python -m pip install --upgrade pip
+RUN pip install -r requirements.txt
 ADD config.yml config.yml
 ADD domain.yml domain.yml
 ADD credentials.yml credentials.yml
