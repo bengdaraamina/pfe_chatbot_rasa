@@ -9,7 +9,7 @@ WORKDIR /app
 # Copy your Rasa project files into the container
 COPY . .
 # upgrade pip version
- RUN pip install --upgrade pip
+#RUN pip install --upgrade pip
 RUN pip install openai
 # Train your Rasa model
 #RUN rasa train
