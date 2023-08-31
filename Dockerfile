@@ -1,5 +1,5 @@
 FROM python:3.7.7-stretch AS BASE
-FROM rasa/duckling:latest
+#FROM rasa/duckling:latest
 
 # Install Duckling as a service
 #RUN docker run -d -p 8000:8000 rasa/duckling:latest
