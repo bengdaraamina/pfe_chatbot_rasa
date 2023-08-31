@@ -1,17 +1,22 @@
-FROM python:3.7.7-stretch AS BASE
+#FROM python:3.7.7-stretch AS BASE
+FROM rasa/duckling:latest
+
+# Install Duckling as a service
+#RUN docker run -d -p 8000:8000 rasa/duckling:latest
+# Set the working directory to /app
 
 WORKDIR /app
-
+# Copy your Rasa project files into the container
+COPY . .
 # upgrade pip version
-
+ RUN pip install --upgrade pip
 RUN pip install openai
-# Copy the requirements file into the container at /app
-#COPY requirements.txt /app/
-RUN python -m pip install --upgrade pip
-#RUN pip install -r requirements.txt
+# Train your Rasa model
+#RUN rasa train
+
 ADD config.yml config.yml
 ADD domain.yml domain.yml
 ADD credentials.yml credentials.yml
 ADD endpoints.yml endpoints.yml
-# Define the command to run your application
-CMD ["python", "app.py"]
+# Start the Rasa server
+#CMD ["rasa", "run", "-p", "5005", "--enable-api"]
