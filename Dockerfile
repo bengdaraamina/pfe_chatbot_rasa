@@ -1,4 +1,4 @@
-#FROM python:3.7.7-stretch AS BASE
+FROM python:3.7.7-stretch AS BASE
 FROM rasa/duckling:latest
 
 # Install Duckling as a service
