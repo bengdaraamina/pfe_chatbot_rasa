@@ -6,7 +6,7 @@ WORKDIR /app
 
 RUN pip install openai
 # Copy the requirements file into the container at /app
-COPY requirements.txt /app/
+#COPY requirements.txt /app/
 RUN python -m pip install --upgrade pip
 #RUN pip install -r requirements.txt
 ADD config.yml config.yml
