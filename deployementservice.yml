@@ -6,6 +6,8 @@ metadata:
   name: rasa-deployment
   labels:
     app: rasa
+    server: https://172.31.45.192
+
 spec:
   replicas: 1
   selector:
