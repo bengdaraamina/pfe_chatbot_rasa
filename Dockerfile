@@ -21,4 +21,4 @@ ADD endpoints.yml endpoints.yml
 #RUN docker pull rasa/duckling
 #RUN docker run -d -p 8010:8010 -p 5010:5010 --name rasa rasa/duckling:latest
 # Start the Rasa server
-#CMD ["rasa", "run", "-p", "5005", "--enable-api"]
+CMD ["rasa", "run", "-p", "5005", "--enable-api"]
