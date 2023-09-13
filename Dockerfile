@@ -10,10 +10,10 @@ WORKDIR /app
 COPY . .
 # upgrade pip version
 #RUN pip install --upgrade pip
-#RUN pip install rasa
+RUN pip install rasa
 RUN pip install openai
 # Train your Rasa model
-RUN rasa train
+#RUN rasa train
 
 ADD config.yml config.yml
 ADD domain.yml domain.yml
