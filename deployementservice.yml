@@ -3,22 +3,22 @@ kind: Deployment
 metadata:
   name: rasa-deployment
   labels:
-    app: nodeapp
+    app: rasa
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nodeapp
+      app: rasa
   template:
     metadata:
       labels:
-        app: nodeapp 
+        app: rasa 
     spec:
       containers:
-      - name: rasaserver
+      - name: rasa
         image: aminaaaa/rasa:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 5055
         
         
 ---
@@ -26,13 +26,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: rasaapp-service
+  name: rasa-service
 spec:
   selector:
-    app: rasaapp 
+    app: rasa
   type: LoadBalancer
   ports:
   - protocol: TCP
     port: 5000
-    targetPort: 3000
+    targetPort: 5055
     nodePort: 31110
