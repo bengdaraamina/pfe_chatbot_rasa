@@ -1,42 +1,16 @@
-
-   
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rasa-deployment
-  labels:
-    app: rasa
-    server: https://172.31.45.192
-
+  name: my-app-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: rasa
+      app: my-app
   template:
     metadata:
       labels:
-        app: rasa 
+        app: my-app
     spec:
-      containers:
-      - name: rasa
-        image: rasa/duckling:latest
-        ports:
-        - containerPort: 3000
-        
-        
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: rasa-service
-spec:
-  selector:
-    app: rasa 
-  type: LoadBalancer
-  ports:
-  - protocol: TCP
-    port: 5000
-    targetPort: 3000
-    nodePort: 31110
+      containers: 
+        image: rasa/duckling:tag
