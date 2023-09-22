@@ -1,16 +1,38 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app-deployment
+  name: rasa-deployment
+  labels:
+    app: nodeapp
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: my-app
+      app: nodeapp
   template:
     metadata:
       labels:
-        app: my-app
+        app: nodeapp 
     spec:
-      containers: 
-        image: rasa/duckling:tag
+      containers:
+      - name: rasaserver
+        image: aminaaaa/rasa:latest
+        ports:
+        - containerPort: 3000
+        
+        
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: rasaapp-service
+spec:
+  selector:
+    app: rasaapp 
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 3000
+    nodePort: 31110
