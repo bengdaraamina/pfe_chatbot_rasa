@@ -15,7 +15,7 @@ spec:
         app: rasa 
     spec:
       containers:
-      - name: rasa
+      - name: 215ee28ee49a
         image: aminaaaa/rasa:latest
         ports:
         - containerPort: 5055
