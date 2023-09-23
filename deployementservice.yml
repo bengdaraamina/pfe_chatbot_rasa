@@ -35,4 +35,3 @@ spec:
   - protocol: TCP
     port: 5000
     targetPort: 5055
-   rasaPort: 31110
